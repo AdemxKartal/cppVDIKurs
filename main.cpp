@@ -80,7 +80,14 @@ int main() {
     char mark=0;
     do{
         board();
-    player = (player%2)?1:2;
+
+    if (player%2){
+        player = 1;
+    }
+    else{
+        player = 2;
+    }
+
     std::cout<<"Player"<<player << ", enter a number . " <<std::endl;
     std::cin>>choice;
     mark = (player==1)? 'X' : 'O';
