@@ -13,7 +13,7 @@ void board()
 {
     //system("cls");
     std::cout << "Hello, World!" << std::endl;
-    std::cout << "Player 1 (X)  vs. Player 2 (O)" << std::endl;
+    std::cout << "Spieler 1 (X)  vs. Spieler 2 (O)" << std::endl;
     std::cout << "     |     |     "  << std::endl;
     std::cout << "  " << obenLinks<< "  |  " << obenMitte << "  |  " << obenRechts<< std::endl;
     std::cout <<  "_____|_____|_____" << std::endl;
@@ -74,23 +74,23 @@ int main(){
 
 int main() {
     board();
-    int player = 1;
+    int spieler = 1;
     int i =0;
     int choice=0;
     char mark=0;
     do{
         board();
 
-    if (player%2){
-        player = 1;
+    if (spieler%2){
+        spieler = 1;
     }
     else{
-        player = 2;
+        spieler = 2;
     }
 
-    std::cout<<"Player"<<player << ", enter a number . " <<std::endl;
+    std::cout<<"Spieler "<<spieler << ", enter a number . " <<std::endl;
     std::cin>>choice;
-    mark = (player==1)? 'X' : 'O';
+    mark = (spieler==1)? 'X' : 'O';
     if(choice ==1 && obenLinks=='1'){
         obenLinks = mark;
     }
@@ -124,18 +124,18 @@ int main() {
     else
     {
         std::cout<<"ungueltige Eingabe, bitte erneut eingeben"<<std::endl;
-        player--;
+        spieler--;
         std::cin.ignore()>>choice;
         std::cin.get()>>choice;
     }
 
     i = checkwin();
-    player++;
+    spieler++;
     }while(i==-1);
     board();
 
     if (i==1){
-        std::cout<<"==>\aPlayer "<<--player<<" win "<<std::endl;
+        std::cout<<"==>\aPlayer "<<--spieler<<" win "<<std::endl;
     }
     else{
         std::cout<<"==> es ist ein unentschieden"<<std::endl;
