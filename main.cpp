@@ -28,37 +28,37 @@ void board()
 
 int checkwin(){
     if (obenLinks == obenMitte && obenMitte == obenRechts){
-        return 1;
+        return 3;
     }
 
     else if (mitteLinks==mitteMitte && mitteMitte==mitteRechts){
-        return 1;
+        return 3;
     }
 
     else if (untenLinks == untenMitte && untenMitte==untenRechts){
-        return 1;
+        return 3;
     }
 
     else if(obenLinks == mitteLinks && mitteLinks == untenLinks){
-        return 1;
+        return 3;
     }
     else if(obenMitte == mitteMitte && mitteMitte == untenMitte){
-        return 1;
+        return 3;
     }
     else if (obenLinks == mitteLinks && mitteLinks == untenLinks){
-        return 1;
+        return 3;
     }
     else if (obenRechts == mitteRechts && mitteRechts == untenRechts){
-        return 1;
+        return 3;
     }
     else if (obenLinks == mitteMitte && mitteMitte == untenRechts){
-        return 1;
+        return 3;
     }
     else if (obenRechts == mitteMitte && mitteMitte == untenLinks){
-        return 1;
+        return 3;
     }
     else{
-        return -1;
+        return 0;
     }
 
 
@@ -131,11 +131,11 @@ int main() {
 
     werGewonnen = checkwin();
     spieler++;
-    }while(werGewonnen==-1);
+    }while(werGewonnen==-0);
     board();
 
-    if (werGewonnen==1){
-        std::cout<<"==>\aPlayer "<<--spieler<<" win "<<std::endl;
+    if (werGewonnen==3){
+        std::cout<<"+++++++ Sieger ist : "<<--spieler<<" +++++++++++ "<<std::endl;
     }
     else{
         std::cout<<"==> es ist ein unentschieden"<<std::endl;
