@@ -11,7 +11,6 @@ char untenRechts ='9';
 
 void board()
 {
-    //system("cls");
     std::cout << "Hello, World!" << std::endl;
     std::cout << "Spieler 1 (X)  vs. Spieler 2 (O)" << std::endl;
     std::cout << "     |     |     "  << std::endl;
