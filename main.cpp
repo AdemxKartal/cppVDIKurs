@@ -75,7 +75,7 @@ int main(){
 int main() {
     board();
     int spieler = 1;
-    int i =0;
+    int werGewonnen =0;
     int choice=0;
     char mark=0;
     do{
@@ -129,12 +129,12 @@ int main() {
         std::cin.get()>>choice;
     }
 
-    i = checkwin();
+    werGewonnen = checkwin();
     spieler++;
-    }while(i==-1);
+    }while(werGewonnen==-1);
     board();
 
-    if (i==1){
+    if (werGewonnen==1){
         std::cout<<"==>\aPlayer "<<--spieler<<" win "<<std::endl;
     }
     else{
