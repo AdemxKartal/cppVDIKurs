@@ -72,66 +72,66 @@ int main(){
 */
 
 int main() {
-    board();
+    //board();
+    char mark=0;
     int spieler = 1;
     int werGewonnen =0;
     int choice=0;
-    char mark=0;
-    do{
+    while (werGewonnen==0){
         board();
 
-    if (spieler%2){
-        spieler = 1;
-    }
-    else{
-        spieler = 2;
+        if (spieler%2){
+            spieler = 1;
+        }
+        else{
+            spieler = 2;
+        }
+
+        std::cout<<"Spieler "<<spieler << ", enter a number . " <<std::endl;
+        std::cin>>choice;
+        mark = (spieler==1)? 'X' : 'O';
+        if(choice ==1 && obenLinks=='1'){
+            obenLinks = mark;
+        }
+        else if(choice == 2 && obenMitte=='2'){
+            obenMitte=mark;
+        }
+        else if (choice == 3 && obenRechts=='3'){
+            obenRechts= mark;
+        }
+
+        else if (choice ==4 && mitteLinks =='4'){
+            mitteLinks =mark;
+        }
+        else if (choice ==5 && mitteMitte=='5'){
+            mitteMitte=mark;
+        }
+        else if (choice==6 && mitteRechts=='6'){
+            mitteRechts=mark;
+
+        }
+        else if (choice==7 && untenLinks=='7'){
+            untenLinks = mark;
+        }
+        else if (choice==8 &&untenMitte=='8'){
+            untenMitte=mark;
+        }
+        else if (choice==9 && untenMitte =='9'){
+            untenMitte=mark;
+        }
+
+        else
+        {
+            std::cout<<"ungueltige Eingabe, bitte erneut eingeben"<<std::endl;
+            spieler--;
+            std::cin.ignore()>>choice;
+            std::cin.get()>>choice;
+        }
+
+        werGewonnen = checkwin();
+        spieler++;
     }
 
-    std::cout<<"Spieler "<<spieler << ", enter a number . " <<std::endl;
-    std::cin>>choice;
-    mark = (spieler==1)? 'X' : 'O';
-    if(choice ==1 && obenLinks=='1'){
-        obenLinks = mark;
-    }
-    else if(choice == 2 && obenMitte=='2'){
-        obenMitte=mark;
-    }
-    else if (choice == 3 && obenRechts=='3'){
-        obenRechts= mark;
-    }
-
-    else if (choice ==4 && mitteLinks =='4'){
-        mitteLinks =mark;
-    }
-    else if (choice ==5 && mitteMitte=='5'){
-        mitteMitte=mark;
-    }
-    else if (choice==6 && mitteRechts=='6'){
-        mitteRechts=mark;
-
-    }
-    else if (choice==7 && untenLinks=='7'){
-    untenLinks = mark;
-    }
-    else if (choice==8 &&untenMitte=='8'){
-        untenMitte=mark;
-    }
-    else if (choice==9 && untenMitte =='9'){
-        untenMitte=mark;
-    }
-
-    else
-    {
-        std::cout<<"ungueltige Eingabe, bitte erneut eingeben"<<std::endl;
-        spieler--;
-        std::cin.ignore()>>choice;
-        std::cin.get()>>choice;
-    }
-
-    werGewonnen = checkwin();
-    spieler++;
-    }while(werGewonnen==-0);
-    board();
 
     if (werGewonnen==3){
         std::cout<<"+++++++ Sieger ist : "<<--spieler<<" +++++++++++ "<<std::endl;
@@ -145,3 +145,59 @@ int main() {
 }
 
 
+/*
+do{
+    board();
+
+if (spieler%2){
+    spieler = 1;
+}
+else{
+    spieler = 2;
+}
+
+std::cout<<"Spieler "<<spieler << ", enter a number . " <<std::endl;
+std::cin>>choice;
+mark = (spieler==1)? 'X' : 'O';
+if(choice ==1 && obenLinks=='1'){
+    obenLinks = mark;
+}
+else if(choice == 2 && obenMitte=='2'){
+    obenMitte=mark;
+}
+else if (choice == 3 && obenRechts=='3'){
+    obenRechts= mark;
+}
+
+else if (choice ==4 && mitteLinks =='4'){
+    mitteLinks =mark;
+}
+else if (choice ==5 && mitteMitte=='5'){
+    mitteMitte=mark;
+}
+else if (choice==6 && mitteRechts=='6'){
+    mitteRechts=mark;
+
+}
+else if (choice==7 && untenLinks=='7'){
+untenLinks = mark;
+}
+else if (choice==8 &&untenMitte=='8'){
+    untenMitte=mark;
+}
+else if (choice==9 && untenMitte =='9'){
+    untenMitte=mark;
+}
+
+else
+{
+    std::cout<<"ungueltige Eingabe, bitte erneut eingeben"<<std::endl;
+    spieler--;
+    std::cin.ignore()>>choice;
+    std::cin.get()>>choice;
+}
+
+werGewonnen = checkwin();
+spieler++;
+}while(werGewonnen==0);
+ */
