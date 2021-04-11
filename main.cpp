@@ -9,9 +9,9 @@ char untenLinks = '7';
 char untenMitte= '8';
 char untenRechts ='9';
 int wahl=0;
-int spieler = 0;
+int spieler = 1;
 /*
- * TO DO: Wenn falsches Spielfeld makiert, muss die SPiellogik angepasst werden
+ * TO DO: Wenn falsches Spielfeld makiert, muss die Spiellogik angepasst werden
  */
 
 
@@ -135,7 +135,7 @@ int main() {
         werGewonnen = checkwin();
         spieler++;
     }
-    std::cout<<"++++ Sieger ist : "<<
+
 
     if (werGewonnen==3){
         std::cout<<"+++++++ Sieger ist : "<<--spieler<<" +++++++++++ "<<std::endl;
