@@ -1,4 +1,8 @@
 #include <iostream>
+#include <string>
+using namespace std;
+
+
 char obenLinks = '1';
 char obenMitte = '2';
 char obenRechts = '3';
@@ -10,6 +14,8 @@ char untenMitte= '8';
 char untenRechts ='9';
 int wahl=0;
 int spieler = 1;
+string gewonnen = "nein";
+
 /*
  * TO DO: Wenn falsches Spielfeld makiert, muss die Spiellogik angepasst werden
  */
@@ -31,39 +37,39 @@ void board()
 }
 
 
-int checkwin(){
+string checkwin(){
     if (obenLinks == obenMitte && obenMitte == obenRechts){
-        return 3;
+        return "ja";
     }
 
     else if (mitteLinks==mitteMitte && mitteMitte==mitteRechts){
-        return 3;
+        return "ja";
     }
 
     else if (untenLinks == untenMitte && untenMitte==untenRechts){
-        return 3;
+        return "ja";
     }
 
     else if(obenLinks == mitteLinks && mitteLinks == untenLinks){
-        return 3;
+        return "ja";
     }
     else if(obenMitte == mitteMitte && mitteMitte == untenMitte){
-        return 3;
+        return "ja";
     }
     else if (obenLinks == mitteLinks && mitteLinks == untenLinks){
-        return 3;
+        return "ja";
     }
     else if (obenRechts == mitteRechts && mitteRechts == untenRechts){
-        return 3;
+        return "ja";
     }
     else if (obenLinks == mitteMitte && mitteMitte == untenRechts){
-        return 3;
+        return "ja";
     }
     else if (obenRechts == mitteMitte && mitteMitte == untenLinks){
-        return 3;
+        return "ja";
     }
     else{
-        return 0;
+        return "nein";
     }
 
 
@@ -117,9 +123,8 @@ int checkwin(){
 
 int main() {
 
-    int werGewonnen =0;
     char mark ='N';
-    while (werGewonnen==0){
+    while (gewonnen == "nein"){
         board();
 
         if (spieler%2){
@@ -132,19 +137,24 @@ int main() {
         }
         std::cout<<"Spieler "<<spieler << ", enter a number . " <<std::endl;
         makiereFeld(mark);
-        werGewonnen = checkwin();
+        gewonnen = checkwin();
+        if(gewonnen=="ja"){
+            std::cout<<"+++++ Sieger ist Spieler : "<<spieler<<"++++"<<std::endl;
+        }
         spieler++;
     }
 
-
+    /*
     if (werGewonnen==3){
         std::cout<<"+++++++ Sieger ist : "<<--spieler<<" +++++++++++ "<<std::endl;
     }
     else{
         std::cout<<"==> es ist ein unentschieden"<<std::endl;
     }
+
     std::cin.ignore() >> wahl;
     std::cin.get() >> wahl;
+     */
     return 0;
 }
 
