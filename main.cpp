@@ -18,12 +18,12 @@ string gewonnen = "nein";
 
 /*
  * TO DO: Wenn falsches Spielfeld makiert, muss die Spiellogik angepasst werden
+ * BUG: Wenn falsche Eingabe dann läuft der Code in einer Dauerschleife
  */
 
 
 void board()
 {
-    std::cout << "Hello, World!" << std::endl;
     std::cout << "Spieler 1 (X)  vs. Spieler 2 (O)" << std::endl;
     std::cout << "     |     |     "  << std::endl;
     std::cout << "  " << obenLinks<< "  |  " << obenMitte << "  |  " << obenRechts<< std::endl;
@@ -111,7 +111,8 @@ string checkwin(){
 
     else
     {
-        //std::cout<<"ungueltige Eingabe, bitte erneut eingeben"<<std::endl;
+        std::cout<<"ungueltige Eingabe, bitte erneut eingeben"<<std::endl;
+        spieler = spieler -1;
         //spieler--;
         std::cin.ignore() >> wahl;
         std::cin.get() >> wahl;
@@ -144,17 +145,6 @@ int main() {
         spieler++;
     }
 
-    /*
-    if (werGewonnen==3){
-        std::cout<<"+++++++ Sieger ist : "<<--spieler<<" +++++++++++ "<<std::endl;
-    }
-    else{
-        std::cout<<"==> es ist ein unentschieden"<<std::endl;
-    }
-
-    std::cin.ignore() >> wahl;
-    std::cin.get() >> wahl;
-     */
     return 0;
 }
 
