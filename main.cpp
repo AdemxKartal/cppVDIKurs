@@ -24,16 +24,16 @@ string gewonnen = "nein";
 
 void board()
 {
-    std::cout << "Spieler 1 (X)  vs. Spieler 2 (O)" << std::endl;
-    std::cout << "     |     |     "  << std::endl;
-    std::cout << "  " << obenLinks<< "  |  " << obenMitte << "  |  " << obenRechts<< std::endl;
-    std::cout <<  "_____|_____|_____" << std::endl;
-    std::cout << "     |     |     " << std::endl;
-    std::cout << "  " << mitteLinks<< "  |  " <<mitteMitte << "  |  " << mitteRechts << std::endl;
-    std::cout << "_____|_____|_____" <<  std::endl;
-    std::cout << "     |     |     " <<  std::endl;
-    std::cout << "  " << untenLinks << "  |  " << untenMitte << "  |  " << untenRechts << std::endl;
-    std::cout << "     |     |     " <<std::endl;
+    cout << "Spieler 1 (X)  vs. Spieler 2 (O)" << endl;
+    cout << "     |     |     "  << endl;
+    cout << "  " << obenLinks<< "  |  " << obenMitte << "  |  " << obenRechts<< endl;
+    cout <<  "_____|_____|_____" << endl;
+    cout << "     |     |     " << endl;
+    cout << "  " << mitteLinks<< "  |  " <<mitteMitte << "  |  " << mitteRechts << endl;
+    cout << "_____|_____|_____" <<  endl;
+    cout << "     |     |     " <<  endl;
+    cout << "  " << untenLinks << "  |  " << untenMitte << "  |  " << untenRechts << endl;
+    cout << "     |     |     " <<endl;
 }
 
 
@@ -72,13 +72,11 @@ string checkwin(){
         return "nein";
     }
 
-
-
 }
 
 //int makiereFeld(wahl, mark){
   void makiereFeld(char mark){
-    std::cin >> wahl;
+    cin >> wahl;
     if(wahl == 1 && obenLinks == '1'){
         obenLinks = mark;
     }
@@ -111,15 +109,11 @@ string checkwin(){
 
     else
     {
-        std::cout<<"ungueltige Eingabe, bitte erneut eingeben"<<std::endl;
+        cout<<"ungueltige Eingabe, bitte erneut eingeben"<<endl;
         spieler = spieler -1;
-        //spieler--;
-        std::cin.ignore() >> wahl;
-        std::cin.get() >> wahl;
+        cin.ignore() >> wahl;
+        cin.get() >> wahl;
     }
-
-
-
 }
 
 int main() {
@@ -136,15 +130,14 @@ int main() {
             spieler = 2;
             mark = 'O';
         }
-        std::cout<<"Spieler "<<spieler << ", enter a number . " <<std::endl;
+        cout<<"Spieler "<<spieler << ", enter a number . " <<endl;
         makiereFeld(mark);
         gewonnen = checkwin();
         if(gewonnen=="ja"){
-            std::cout<<"+++++ Sieger ist Spieler : "<<spieler<<"++++"<<std::endl;
+            cout<<"+++++ Sieger ist Spieler : "<<spieler<<"++++"<<endl;
         }
         spieler++;
     }
-
     return 0;
 }
 
