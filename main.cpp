@@ -74,7 +74,7 @@ string checkwin(){
 
 }
 
-//int makiereFeld(wahl, mark){
+
   void makiereFeld(char mark){
     cin >> wahl;
     if(wahl == 1 && obenLinks == '1'){
