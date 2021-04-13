@@ -22,7 +22,7 @@ string gewonnen = "nein";
  */
 
 
-void board()
+void spielfeld()
 {
     cout << "Spieler 1 (X)  vs. Spieler 2 (O)" << endl;
     cout << "     |     |     "  << endl;
@@ -120,7 +120,7 @@ int main() {
 
     char mark ='N';
     while (gewonnen == "nein"){
-        board();
+        spielfeld();
 
         if (spieler%2){
             spieler = 1;
