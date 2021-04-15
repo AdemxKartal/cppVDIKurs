@@ -24,7 +24,7 @@ char gewonnen = 'n';
 
 void spielfeld()
 {
-    cout << "Spieler 1 (X)  vs. Spieler 2 (O)" << endl;
+    cout << "Spieler 1 (X)  gegen Spieler 2 (O)" << endl;
     cout << "     |     |     "  << endl;
     cout << "  " << obenLinks<< "  |  " << obenMitte << "  |  " << obenRechts<< endl;
     cout <<  "_____|_____|_____" << endl;
