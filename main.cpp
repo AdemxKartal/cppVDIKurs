@@ -126,7 +126,7 @@ int main() {
             spieler = 2;
             mark = 'O';
         }
-        cout<<"Spieler "<<spieler << ", enter a number . " <<endl;
+        cout<<"Spieler: "<<spieler << "ist an der Reihe. " <<endl;
         makiereFeld(mark);
         checkwin();
         if(gewonnen=='j'){
