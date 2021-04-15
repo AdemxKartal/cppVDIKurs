@@ -132,7 +132,7 @@ int main() {
         if(gewonnen=="ja"){
             cout<<"+++++ Sieger ist Spieler : "<<spieler<<"++++"<<endl;
         }
-        spieler++;
+        spieler=spieler+1;
     }
     return 0;
 }
