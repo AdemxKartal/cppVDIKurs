@@ -37,41 +37,37 @@ void spielfeld()
 }
 
 
-string checkwin(){
+void checkwin(){
     if (obenLinks == obenMitte && obenMitte == obenRechts){
-        return "ja";
+        gewonnen = "ja";
     }
 
     else if (mitteLinks==mitteMitte && mitteMitte==mitteRechts){
-        return "ja";
+        gewonnen = "ja";
     }
 
     else if (untenLinks == untenMitte && untenMitte==untenRechts){
-        return "ja";
+        gewonnen = "ja";
     }
 
     else if(obenLinks == mitteLinks && mitteLinks == untenLinks){
-        return "ja";
+        gewonnen = "ja";
     }
     else if(obenMitte == mitteMitte && mitteMitte == untenMitte){
-        return "ja";
+        gewonnen="ja";
     }
     else if (obenLinks == mitteLinks && mitteLinks == untenLinks){
-        return "ja";
+        gewonnen="ja";
     }
     else if (obenRechts == mitteRechts && mitteRechts == untenRechts){
-        return "ja";
+        gewonnen = "ja";
     }
     else if (obenLinks == mitteMitte && mitteMitte == untenRechts){
-        return "ja";
+        gewonnen = "ja";
     }
     else if (obenRechts == mitteMitte && mitteMitte == untenLinks){
-        return "ja";
+        gewonnen = "ja";
     }
-    else{
-        return "nein";
-    }
-
 }
 
 
@@ -132,7 +128,7 @@ int main() {
         }
         cout<<"Spieler "<<spieler << ", enter a number . " <<endl;
         makiereFeld(mark);
-        gewonnen = checkwin();
+        checkwin();
         if(gewonnen=="ja"){
             cout<<"+++++ Sieger ist Spieler : "<<spieler<<"++++"<<endl;
         }
