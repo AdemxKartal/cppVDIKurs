@@ -14,7 +14,7 @@ char untenMitte= '8';
 char untenRechts ='9';
 int wahl=0;
 int spieler = 1;
-string gewonnen = "nein";
+char gewonnen = 'n';
 
 /*
  * TO DO: Wenn falsches Spielfeld makiert, muss die Spiellogik angepasst werden
@@ -39,34 +39,34 @@ void spielfeld()
 
 void checkwin(){
     if (obenLinks == obenMitte && obenMitte == obenRechts){
-        gewonnen = "ja";
+        gewonnen = 'j';
     }
 
     else if (mitteLinks==mitteMitte && mitteMitte==mitteRechts){
-        gewonnen = "ja";
+        gewonnen = 'j';
     }
 
     else if (untenLinks == untenMitte && untenMitte==untenRechts){
-        gewonnen = "ja";
+        gewonnen = 'j';
     }
 
     else if(obenLinks == mitteLinks && mitteLinks == untenLinks){
-        gewonnen = "ja";
+        gewonnen = 'j';
     }
     else if(obenMitte == mitteMitte && mitteMitte == untenMitte){
-        gewonnen="ja";
+        gewonnen='j';
     }
     else if (obenLinks == mitteLinks && mitteLinks == untenLinks){
-        gewonnen="ja";
+        gewonnen='j';
     }
     else if (obenRechts == mitteRechts && mitteRechts == untenRechts){
-        gewonnen = "ja";
+        gewonnen = 'j';
     }
     else if (obenLinks == mitteMitte && mitteMitte == untenRechts){
-        gewonnen = "ja";
+        gewonnen = 'j';
     }
     else if (obenRechts == mitteMitte && mitteMitte == untenLinks){
-        gewonnen = "ja";
+        gewonnen = 'j';
     }
 }
 
@@ -115,7 +115,7 @@ void checkwin(){
 int main() {
 
     char mark ='N';
-    while (gewonnen == "nein"){
+    while (gewonnen == 'n'){
         spielfeld();
 
         if (spieler%2){
@@ -129,7 +129,7 @@ int main() {
         cout<<"Spieler "<<spieler << ", enter a number . " <<endl;
         makiereFeld(mark);
         checkwin();
-        if(gewonnen=="ja"){
+        if(gewonnen=='j'){
             cout<<"+++++ Sieger ist Spieler : "<<spieler<<"++++"<<endl;
         }
         spieler=spieler+1;
