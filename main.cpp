@@ -15,6 +15,9 @@ char untenMitte= '8';
 char untenRechts ='9';
 char makierung = 'X';
 int wahl = 0;
+int spieler = 1;
+char gewonnen = 'n';
+
 
 
 void zeichneSpielfeld()
@@ -31,8 +34,40 @@ void zeichneSpielfeld()
     cout << "     |     |     " <<std::endl;
 }
 
+void checkGewinner(){
+    if (obenLinks == obenMitte && obenMitte == obenRechts){
+        gewonnen = 'j';
+    }
 
-void makiereFeld(){
+    else if (mitteLinks==mitteMitte && mitteMitte==mitteRechts){
+        gewonnen = 'j';
+    }
+
+    else if (untenLinks == untenMitte && untenMitte==untenRechts){
+        gewonnen = 'j';
+    }
+
+    else if(obenLinks == mitteLinks && mitteLinks == untenLinks){
+        gewonnen = 'j';
+    }
+    else if(obenMitte == mitteMitte && mitteMitte == untenMitte){
+        gewonnen='j';
+    }
+    else if (obenLinks == mitteLinks && mitteLinks == untenLinks){
+        gewonnen='j';
+    }
+    else if (obenRechts == mitteRechts && mitteRechts == untenRechts){
+        gewonnen = 'j';
+    }
+    else if (obenLinks == mitteMitte && mitteMitte == untenRechts){
+        gewonnen = 'j';
+    }
+    else if (obenRechts == mitteMitte && mitteMitte == untenLinks){
+        gewonnen = 'j';
+    }
+}
+
+void makiereFeld(char mark){
     cout<<" wähle ein Feld zwischen 1 bis 9 aus "<<endl;
     cin >> wahl;
     if(wahl == 1 && obenLinks == '1'){
@@ -74,8 +109,27 @@ void makiereFeld(){
 }
 
 int main(){
-    zeichneSpielfeld();
-    makiereFeld(makierung);
-    zeichneSpielfeld();
+
+    char mark ='N';
+    while (gewonnen == 'n'){
+        zeichneSpielfeld();
+
+        if (spieler%2){
+            spieler = 1;
+            mark = 'X';
+        }
+        else{
+            spieler = 2;
+            mark = 'O';
+        }
+        cout<<"Spieler: "<<spieler << "ist an der Reihe. " <<endl;
+        makiereFeld(mark);
+        checkGewinner();
+        if(gewonnen=='j'){
+            zeichneSpielfeld();
+            cout<<"+++++ Sieger ist Spieler : "<<spieler<<"++++"<<endl;
+        }
+        spieler=spieler+1;
+    }
     return 0;
 }
