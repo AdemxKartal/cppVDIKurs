@@ -61,8 +61,8 @@ void makiereFeld(){
     else if (wahl == 8 && untenMitte == '8'){
         untenMitte=mark;
     }
-    else if (wahl == 9 && untenMitte == '9'){
-        untenMitte=mark;
+    else if (wahl == 9 && untenRechts == '9'){
+        untenRechts=mark;
     }
 
     else
